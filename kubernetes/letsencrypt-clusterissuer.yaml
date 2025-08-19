@@ -1,0 +1,33 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"cert-manager.io/v1","kind":"ClusterIssuer","metadata":{"annotations":{},"name":"letsencrypt-prod"},"spec":{"acme":{"email":"tpatnala@digitalrealty.com","privateKeySecretRef":{"name":"letsencrypt-prod"},"server":"https://acme-v02.api.letsencrypt.org/directory","solvers":[{"http01":{"ingress":{"class":"nginx"}}}]}}}
+  creationTimestamp: "2025-05-29T14:59:45Z"
+  generation: 1
+  name: letsencrypt-prod
+  resourceVersion: "2590815"
+  uid: 191cda94-5123-4a61-9b0c-98b24b13c932
+spec:
+  acme:
+    email: tpatnala@digitalrealty.com
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+status:
+  acme:
+    lastPrivateKeyHash: y+im8DLypfxK7ofsZUTPa07MCo/ov2VvS/SeuHDtE+w=
+    lastRegisteredEmail: tpatnala@digitalrealty.com
+    uri: https://acme-v02.api.letsencrypt.org/acme/acct/2430105097
+  conditions:
+  - lastTransitionTime: "2025-05-29T14:59:45Z"
+    message: The ACME account was registered with the ACME server
+    observedGeneration: 1
+    reason: ACMEAccountRegistered
+    status: "True"
+    type: Ready
